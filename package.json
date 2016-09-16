@@ -4,7 +4,8 @@
   "description": "Flowplayer background video plugin",
   "main": "flowplayer.background.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "min": "uglifyjs --compress --mangle --comments '/Flowplayer Oy/' -o flowplayer.background.min.js -- flowplayer.background.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/flowplayer/flowplayer-background/issues"
   },
-  "homepage": "https://github.com/flowplayer/flowplayer-background#readme"
+  "homepage": "https://github.com/flowplayer/flowplayer-background#readme",
+  "devDependencies": {
+    "uglify-js": "^2.7.3"
+  }
 }
