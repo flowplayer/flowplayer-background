@@ -1,0 +1,25 @@
+{
+  "name": "flowplayer-background",
+  "version": "1.0.0",
+  "description": "Flowplayer background video plugin",
+  "main": "flowplayer.background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowplayer/flowplayer-background.git"
+  },
+  "keywords": [
+    "Flowplayer",
+    "HTML5",
+    "background",
+    "video"
+  ],
+  "author": "Flowplayer Oy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flowplayer/flowplayer-background/issues"
+  },
+  "homepage": "https://github.com/flowplayer/flowplayer-background#readme"
+}
