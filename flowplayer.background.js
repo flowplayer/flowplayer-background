@@ -13,11 +13,12 @@
     var common = flowplayer.common
       , bean = flowplayer.bean;
     flowplayer(function(api, root) {
-      if (!api.conf.background) return;
-      api.conf.autoplay = api.conf.loop = api.conf.muted = true;
+      var conf = api.conf,
+          b = conf.background;
+      if (!b) return;
+      conf.autoplay = conf.loop = conf.muted = true;
       common.addClass(root, 'is-background');
 
-      var b = api.conf.background;
       if (!b.audio) {
         api.volume(0, true);
         api.one('progress', function () { api.volume(0, true); });
@@ -31,9 +32,8 @@
       common.css(mask, 'background-color', b.mask || 'rgba(255, 255, 255, 0.7)');
 
       // Make sure container element grows to at least video size
-      var container = root.parentNode;
       function setMinHeight() {
-        common.css(container, 'min-height', common.height(root) + 'px');
+        common.css(root.parentNode, 'min-height', common.height(root) + 'px');
       }
       setMinHeight();
       bean.on(window, 'resize', setMinHeight);
