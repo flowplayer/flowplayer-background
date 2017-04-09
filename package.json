@@ -5,7 +5,7 @@
   "main": "flowplayer.background.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "min": "uglifyjs --compress --mangle --comments '/Flowplayer Oy/' -o flowplayer.background.min.js -- flowplayer.background.js"
+    "min": "uglifyjs --compress --mangle --comments '/Flowplayer Drive Oy/' -o flowplayer.background.min.js -- flowplayer.background.js"
   },
   "repository": {
     "type": "git",
