@@ -17,16 +17,17 @@
           b = conf.background;
       if (!b) return;
       conf.autoplay = conf.loop = conf.muted = true;
-      conf.hlsQualities = conf.dashQualities = false;
-      delete conf.qualities;
-      delete conf.defaultQuality;
       common.addClass(root, 'is-background');
 
       if (!b.audio) {
         api.volume(0, true);
         api.one('progress', function () { api.volume(0, true); });
       }
-      api.on('finish', function(_e, api) {
+      api.on('load', function (_e, _api, video) {
+        video.hlsQualities = video.dashQualities = false;
+        delete video.qualities;
+        delete video.defaultQuality;
+      }).on('finish', function(_e, api) {
         // api.conf.loop does not have any effect when set on boot
         if (!conf.playlist || !conf.playlist.length || api.video.is_last) {
           api.resume();
