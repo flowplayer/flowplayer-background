@@ -17,6 +17,9 @@
           b = conf.background;
       if (!b) return;
       conf.autoplay = conf.loop = conf.muted = true;
+      conf.hlsQualities = conf.dashQualities = false;
+      delete conf.qualities;
+      delete conf.defaultQuality;
       common.addClass(root, 'is-background');
 
       if (!b.audio) {
