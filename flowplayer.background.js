@@ -2,7 +2,7 @@
 
    Background video plugin for Flowplayer HTML5
 
-   Copyright (c) 2016, Flowplayer Drive Oy
+   Copyright (c) 2016-2017, Flowplayer Drive Oy
 
    Released under the MIT License: https://opensource.org/licenses/MIT
 
