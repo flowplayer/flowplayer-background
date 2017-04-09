@@ -26,7 +26,12 @@
         api.volume(0, true);
         api.one('progress', function () { api.volume(0, true); });
       }
-      api.on('finish', function() { api.resume(); });
+      api.on('finish', function(_e, api) {
+        // api.conf.loop does not have any effect when set on boot
+        if (!conf.playlist || !conf.playlist.length || api.video.is_last) {
+          api.resume();
+        }
+      });
 
       // Add mask
       var mask = document.createElement('div');
