@@ -35,10 +35,22 @@
       });
 
       // Add mask
-      var mask = document.createElement('div');
+      var mask = document.createElement('div'),
+          maskColor = b.mask || 'rgba(255, 255, 255, 0.7)';
       mask.className = 'fp-mask';
       common.find('.fp-player', root)[0].appendChild(mask);
-      common.css(mask, 'background-color', b.mask || 'rgba(255, 255, 255, 0.7)');
+      try {
+        common.css(mask, 'background-color', maskColor);
+      } catch (ignore) {
+        // IE8 cannot handle rgba
+        if (!maskColor.indexOf('rgba')) {
+          var rgba = maskColor.split(/\s*[()]\s*/)[1].split(/\s*,\s*/);
+          common.css(mask, 'background-color', 'rgb(' + rgba.slice(0, 3).join(',') + ')');
+          common.css(mask, 'filter', 'alpha(opacity=' + (parseFloat(rgba[3]) * 100) + ')');
+        } else {
+          common.css(mask, 'background-color', 'transparent');
+        }
+      }
 
       // Make sure container element grows to at least video size
       function setMinHeight() {
