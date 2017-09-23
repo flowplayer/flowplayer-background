@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Flowplayer background video</title>
-    <link rel="stylesheet" href="//releases.flowplayer.org/6.0.5/skin/functional.css">
-    <link rel="stylesheet" href="../flowplayer.background.css">
+    <link rel="stylesheet" href="https://releases.flowplayer.org/7.1.2/skin/skin.css">
+    <link rel="stylesheet" href="flowplayer.background.css">
 
     <style>
     #content, #content2 {
@@ -15,8 +16,8 @@
     }
     </style>
 
-    <script src="//releases.flowplayer.org/6.0.5/flowplayer.js"></script>
-    <script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
+    <script src="https://releases.flowplayer.org/7.1.2/flowplayer.min.js"></script>
+    <script src="https://releases.flowplayer.org/hlsjs/flowplayer.hlsjs.light.min.js"></script>
     <script src="flowplayer.background.js"></script>
   </head>
   <body>
@@ -30,20 +31,20 @@
     </div>
     <script>
     flowplayer('#player', {
-      ratio: 0.4167,
+      ratio: 5/12,
       background: true,
+
+      muted: true, // issue #7
+
       //splash: true,
       clip: {
         title: 'Background video',
         sources: [{
           type: 'application/x-mpegurl',
-          src: '//stream.flowplayer.org/bauhaus.m3u8'
-        }, {
-          type: 'video/webm',
-          src: '//stream.flowplayer.org/bauhaus.webm'
+          src: 'https://edge.flowplayer.org/bauhaus.m3u8'
         }, {
           type: 'video/mp4',
-          src: '//stream.flowplayer.org/bauhaus.mp4'
+          src: 'https://edge.flowplayer.org/bauhaus.mp4'
         }]
       }
     });
