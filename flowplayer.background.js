@@ -16,7 +16,10 @@
       var conf = api.conf,
           b = conf.background;
       if (!b) return;
-      conf.autoplay = conf.loop = conf.muted = true;
+      conf.autoplay = true;
+      // conf.loop, conf.volume, conf.muted have not effect on boot
+      // api.volume(0, true), api.mute(true, true) have no effect on boot
+
       common.addClass(root, 'is-background');
 
       if (!b.audio) {
