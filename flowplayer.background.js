@@ -26,8 +26,10 @@
         video.hlsQualities = video.dashQualities = false;
         delete video.qualities;
         delete video.defaultQuality;
+      /* can't be done because of flowplayer issue #1264
       }).on('ready', function(_e, api) {
         if (!b.audio) api.mute(true, true);
+      */
       }).on('finish', function(_e, api) {
         // api.conf.loop does not have any effect when set on boot
         if (!conf.playlist || !conf.playlist.length || api.video.is_last) {
