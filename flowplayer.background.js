@@ -22,14 +22,12 @@
 
       common.addClass(root, 'is-background');
 
-      if (!b.audio) {
-        api.volume(0, true);
-        api.one('progress', function () { api.volume(0, true); });
-      }
       api.on('load', function (_e, _api, video) {
         video.hlsQualities = video.dashQualities = false;
         delete video.qualities;
         delete video.defaultQuality;
+      }).on('ready', function(_e, api) {
+        if (!b.audio) api.mute(true, true);
       }).on('finish', function(_e, api) {
         // api.conf.loop does not have any effect when set on boot
         if (!conf.playlist || !conf.playlist.length || api.video.is_last) {
